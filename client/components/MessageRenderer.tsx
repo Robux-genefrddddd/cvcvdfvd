@@ -191,7 +191,7 @@ function parseMarkdownElements(text: string): ReactNode[] {
     // Regular paragraphs
     if (trimmed) {
       elements.push(
-        <p key={`p-${i}`} className="mb-3 leading-relaxed text-white/90">
+        <p key={`p-${i}`} className="mb-3 leading-[1.55] text-white/90">
           {parseInlineMarkdown(trimmed)}
         </p>,
       );
