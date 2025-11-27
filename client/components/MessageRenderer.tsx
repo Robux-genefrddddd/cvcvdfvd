@@ -161,10 +161,18 @@ function parseMarkdownElements(text: string, isDark: boolean): ReactNode[] {
       elements.push(
         <blockquote
           key={`quote-${i}`}
-          className="border-l-4 border-orange-500 pl-4 py-2 my-3 text-white/70 italic rounded-r-lg leading-[1.55]"
-          style={{ backgroundColor: "rgba(88, 166, 255, 0.08)" }}
+          className={`border-l-4 border-orange-500 pl-4 py-2 my-3 italic rounded-r-lg leading-[1.55] transition-all duration-300 ${
+            isDark
+              ? "text-white/70"
+              : "text-[#3F3F3F]/70"
+          }`}
+          style={{
+            backgroundColor: isDark
+              ? "rgba(88, 166, 255, 0.08)"
+              : "rgba(59, 130, 246, 0.05)"
+          }}
         >
-          {parseInlineMarkdown(quoteText)}
+          {parseInlineMarkdown(quoteText, isDark)}
         </blockquote>,
       );
       continue;
