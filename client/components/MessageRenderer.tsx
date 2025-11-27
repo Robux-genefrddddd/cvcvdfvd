@@ -28,26 +28,26 @@ function CodeBlockWithCopy({
   return (
     <div
       className={`my-3 rounded-lg overflow-hidden border shadow-lg hover:shadow-xl transition-all duration-300 ${
-        isDark
-          ? "border-white/10"
-          : "border-black/[0.08]"
+        isDark ? "border-white/10" : "border-black/[0.08]"
       }`}
       style={{
-        backgroundColor: isDark ? "#0f1117" : "#F5F5F5"
+        backgroundColor: isDark ? "#0f1117" : "#F5F5F5",
       }}
     >
       <div
         className="flex items-center justify-between px-4 py-3 border-b transition-all duration-300"
         style={{
-          backgroundColor: isDark ? "rgba(88, 166, 255, 0.1)" : "rgba(59, 130, 246, 0.05)",
-          borderColor: isDark ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.08)"
+          backgroundColor: isDark
+            ? "rgba(88, 166, 255, 0.1)"
+            : "rgba(59, 130, 246, 0.05)",
+          borderColor: isDark
+            ? "rgba(255, 255, 255, 0.1)"
+            : "rgba(0, 0, 0, 0.08)",
         }}
       >
         <span
           className={`text-xs font-mono font-semibold uppercase tracking-wide transition-colors duration-300 ${
-            isDark
-              ? "text-orange-300"
-              : "text-orange-600"
+            isDark ? "text-orange-300" : "text-orange-600"
           }`}
         >
           {language || "code"}
@@ -63,7 +63,10 @@ function CodeBlockWithCopy({
         >
           {copied ? (
             <>
-              <Check size={14} className={isDark ? "text-green-400" : "text-green-600"} />
+              <Check
+                size={14}
+                className={isDark ? "text-green-400" : "text-green-600"}
+              />
               <span>Copié!</span>
             </>
           ) : (
@@ -77,9 +80,7 @@ function CodeBlockWithCopy({
       <pre className="p-4 overflow-x-auto">
         <code
           className={`font-mono text-sm leading-[1.55] whitespace-pre transition-colors duration-300 ${
-            isDark
-              ? "text-white/90"
-              : "text-[#1A1A1A]/90"
+            isDark ? "text-white/90" : "text-[#1A1A1A]/90"
           }`}
         >
           {escapeHtml(code)}
@@ -162,14 +163,12 @@ function parseMarkdownElements(text: string, isDark: boolean): ReactNode[] {
         <blockquote
           key={`quote-${i}`}
           className={`border-l-4 border-orange-500 pl-4 py-2 my-3 italic rounded-r-lg leading-[1.55] transition-all duration-300 ${
-            isDark
-              ? "text-white/70"
-              : "text-[#3F3F3F]/70"
+            isDark ? "text-white/70" : "text-[#3F3F3F]/70"
           }`}
           style={{
             backgroundColor: isDark
               ? "rgba(88, 166, 255, 0.08)"
-              : "rgba(59, 130, 246, 0.05)"
+              : "rgba(59, 130, 246, 0.05)",
           }}
         >
           {parseInlineMarkdown(quoteText, isDark)}
@@ -202,18 +201,14 @@ function parseMarkdownElements(text: string, isDark: boolean): ReactNode[] {
           <ol
             key={`ol-${i}`}
             className={`list-decimal list-inside mb-3 space-y-2 pl-2 transition-all duration-300 ${
-              isDark
-                ? "text-white/90"
-                : "text-[#1A1A1A]/90"
+              isDark ? "text-white/90" : "text-[#1A1A1A]/90"
             }`}
           >
             {listItems.map((item, idx) => (
               <li
                 key={idx}
                 className={`leading-[1.55] transition-all duration-300 ${
-                  isDark
-                    ? "text-white/90"
-                    : "text-[#1A1A1A]/90"
+                  isDark ? "text-white/90" : "text-[#1A1A1A]/90"
                 }`}
               >
                 {parseInlineMarkdown(item, isDark)}
@@ -226,18 +221,14 @@ function parseMarkdownElements(text: string, isDark: boolean): ReactNode[] {
           <ul
             key={`ul-${i}`}
             className={`list-disc list-inside mb-3 space-y-2 pl-2 transition-all duration-300 ${
-              isDark
-                ? "text-white/90"
-                : "text-[#1A1A1A]/90"
+              isDark ? "text-white/90" : "text-[#1A1A1A]/90"
             }`}
           >
             {listItems.map((item, idx) => (
               <li
                 key={idx}
                 className={`leading-[1.55] transition-all duration-300 ${
-                  isDark
-                    ? "text-white/90"
-                    : "text-[#1A1A1A]/90"
+                  isDark ? "text-white/90" : "text-[#1A1A1A]/90"
                 }`}
               >
                 {parseInlineMarkdown(item, isDark)}
@@ -255,9 +246,7 @@ function parseMarkdownElements(text: string, isDark: boolean): ReactNode[] {
         <p
           key={`p-${i}`}
           className={`mb-3 leading-[1.55] transition-all duration-300 ${
-            isDark
-              ? "text-white/90"
-              : "text-[#1A1A1A]/90"
+            isDark ? "text-white/90" : "text-[#1A1A1A]/90"
           }`}
         >
           {parseInlineMarkdown(trimmed, isDark)}
@@ -438,9 +427,7 @@ export function MessageRenderer({
       <div className="flex justify-center">
         <div
           className={`rounded-3xl overflow-hidden border-2 shadow-lg max-w-xs transition-all duration-300 ${
-            isDark
-              ? "border-white/20"
-              : "border-black/[0.08]"
+            isDark ? "border-white/20" : "border-black/[0.08]"
           }`}
         >
           <img

@@ -228,9 +228,7 @@ export function Sidebar({
         {/* Header - Minimal */}
         <div
           className={`pt-5 px-3 pb-3 animate-fadeIn border-b transition-all duration-300 ${
-            isDark
-              ? "border-white/[0.08]"
-              : "border-black/[0.08]"
+            isDark ? "border-white/[0.08]" : "border-black/[0.08]"
           }`}
         >
           <div className="flex items-center gap-2.5 justify-between mb-2.5">
@@ -252,18 +250,14 @@ export function Sidebar({
               <div className="hidden sm:block min-w-0 flex-1">
                 <p
                   className={`text-xs font-medium truncate leading-tight transition-colors duration-300 ${
-                    isDark
-                      ? "text-foreground"
-                      : "text-[#1A1A1A]"
+                    isDark ? "text-foreground" : "text-[#1A1A1A]"
                   }`}
                 >
                   {loading ? "..." : userData?.displayName || "User"}
                 </p>
                 <p
                   className={`text-xs truncate leading-tight transition-colors duration-300 ${
-                    isDark
-                      ? "text-muted-foreground"
-                      : "text-[#3F3F3F]/70"
+                    isDark ? "text-muted-foreground" : "text-[#3F3F3F]/70"
                   }`}
                 >
                   {loading ? "..." : userData?.email?.split("@")[0] || "Pro"}
@@ -333,9 +327,7 @@ export function Sidebar({
                       <>
                         <div
                           className={`h-px my-0.5 transition-colors duration-300 ${
-                            isDark
-                              ? "bg-white/[0.08]"
-                              : "bg-black/[0.08]"
+                            isDark ? "bg-white/[0.08]" : "bg-black/[0.08]"
                           }`}
                         />
                         <button
@@ -360,9 +352,7 @@ export function Sidebar({
           </div>
           <p
             className={`text-xs truncate hidden sm:block transition-colors duration-300 ${
-              isDark
-                ? "text-foreground/50"
-                : "text-[#3F3F3F]/50"
+              isDark ? "text-foreground/50" : "text-[#3F3F3F]/50"
             }`}
           >
             {loading ? "..." : userData?.email}
@@ -413,8 +403,8 @@ export function Sidebar({
                         ? "bg-primary/15 border-primary/50 text-foreground shadow-md"
                         : "bg-primary/10 border-primary/30 text-[#1A1A1A] shadow-md"
                       : isDark
-                      ? "border-white/[0.08] hover:bg-white/[0.05] text-muted-foreground hover:text-foreground hover:shadow-md hover:border-primary/30"
-                      : "border-black/[0.08] hover:bg-black/[0.05] text-[#3F3F3F]/70 hover:text-[#1A1A1A] hover:shadow-md hover:border-primary/30"
+                        ? "border-white/[0.08] hover:bg-white/[0.05] text-muted-foreground hover:text-foreground hover:shadow-md hover:border-primary/30"
+                        : "border-black/[0.08] hover:bg-black/[0.05] text-[#3F3F3F]/70 hover:text-[#1A1A1A] hover:shadow-md hover:border-primary/30"
                   }`}
                 >
                   <button
@@ -425,8 +415,8 @@ export function Sidebar({
                           ? "text-foreground font-medium"
                           : "text-[#1A1A1A] font-medium"
                         : isDark
-                        ? "text-foreground/70 hover:text-foreground"
-                        : "text-[#3F3F3F]/70 hover:text-[#1A1A1A]"
+                          ? "text-foreground/70 hover:text-foreground"
+                          : "text-[#3F3F3F]/70 hover:text-[#1A1A1A]"
                     }`}
                   >
                     {conv.name}
@@ -480,9 +470,7 @@ export function Sidebar({
           <div className="flex items-center gap-2 mb-2.5 justify-between">
             <span
               className={`text-xs font-medium transition-colors duration-300 ${
-                isDark
-                  ? "text-foreground/70"
-                  : "text-[#3F3F3F]/70"
+                isDark ? "text-foreground/70" : "text-[#3F3F3F]/70"
               }`}
             >
               Messages
@@ -491,9 +479,7 @@ export function Sidebar({
               onClick={handleSyncMessages}
               disabled={isSyncing}
               className={`p-1.5 rounded-lg transition-all disabled:opacity-50 hover:-translate-y-0.5 ${
-                isDark
-                  ? "hover:bg-white/10"
-                  : "hover:bg-black/[0.08]"
+                isDark ? "hover:bg-white/10" : "hover:bg-black/[0.08]"
               }`}
               title="Synchroniser"
             >
@@ -501,9 +487,7 @@ export function Sidebar({
                 <Loader2
                   size={14}
                   className={`animate-spin transition-colors duration-300 ${
-                    isDark
-                      ? "text-foreground/60"
-                      : "text-[#3F3F3F]/60"
+                    isDark ? "text-foreground/60" : "text-[#3F3F3F]/60"
                   }`}
                 />
               ) : (
@@ -530,9 +514,7 @@ export function Sidebar({
           <div className="space-y-1.5">
             <div
               className={`relative h-2 rounded-full overflow-hidden transition-colors duration-300 ${
-                isDark
-                  ? "bg-white/[0.08]"
-                  : "bg-black/[0.08]"
+                isDark ? "bg-white/[0.08]" : "bg-black/[0.08]"
               }`}
             >
               <div
@@ -542,9 +524,7 @@ export function Sidebar({
             </div>
             <p
               className={`text-xs transition-colors duration-300 ${
-                isDark
-                  ? "text-foreground/60"
-                  : "text-[#3F3F3F]/60"
+                isDark ? "text-foreground/60" : "text-[#3F3F3F]/60"
               }`}
             >
               {messagesLimit - messagesUsed} sur {messagesLimit} restants
@@ -555,9 +535,7 @@ export function Sidebar({
         {/* Footer - Sign Out */}
         <div
           className={`px-3 py-4 border-t animate-fadeIn transition-all duration-300 ${
-            isDark
-              ? "border-white/[0.08]"
-              : "border-black/[0.08]"
+            isDark ? "border-white/[0.08]" : "border-black/[0.08]"
           }`}
           style={{ animationDelay: "0.3s" }}
         >
@@ -587,9 +565,7 @@ export function Sidebar({
           <DialogHeader>
             <DialogTitle
               className={`text-lg font-semibold transition-colors duration-300 ${
-                isDark
-                  ? "text-foreground"
-                  : "text-[#1A1A1A]"
+                isDark ? "text-foreground" : "text-[#1A1A1A]"
               }`}
             >
               Modifier la Conversation

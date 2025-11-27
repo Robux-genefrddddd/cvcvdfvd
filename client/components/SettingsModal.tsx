@@ -93,24 +93,18 @@ export function SettingsModal({ isOpen, onOpenChange }: SettingsModalProps) {
     <Dialog open={isOpen} onOpenChange={onOpenChange}>
       <DialogContent
         className={`border-0 rounded-[12px] w-[460px] max-h-[85vh] flex flex-col p-0 overflow-hidden shadow-2xl transition-all duration-300 ${
-          isDark
-            ? "bg-[#0f0f0f]"
-            : "bg-[#FAFAFA] border border-black/5"
+          isDark ? "bg-[#0f0f0f]" : "bg-[#FAFAFA] border border-black/5"
         }`}
       >
         {/* Header */}
         <DialogHeader
           className={`px-6 py-4 border-b transition-all duration-300 ${
-            isDark
-              ? "border-white/[0.06]"
-              : "border-black/[0.08]"
+            isDark ? "border-white/[0.06]" : "border-black/[0.08]"
           }`}
         >
           <DialogTitle
             className={`text-lg font-semibold transition-colors duration-300 ${
-              isDark
-                ? "text-foreground"
-                : "text-[#1A1A1A]"
+              isDark ? "text-foreground" : "text-[#1A1A1A]"
             }`}
           >
             Paramètres
@@ -128,9 +122,7 @@ export function SettingsModal({ isOpen, onOpenChange }: SettingsModalProps) {
               >
                 <h3
                   className={`text-xs font-semibold uppercase tracking-wider mb-3 transition-colors duration-300 ${
-                    isDark
-                      ? "text-foreground/80"
-                      : "text-[#3F3F3F]/70"
+                    isDark ? "text-foreground/80" : "text-[#3F3F3F]/70"
                   }`}
                 >
                   Photo de profil
@@ -159,9 +151,7 @@ export function SettingsModal({ isOpen, onOpenChange }: SettingsModalProps) {
             <div className="animate-fadeIn" style={{ animationDelay: "0.1s" }}>
               <h3
                 className={`text-xs font-semibold uppercase tracking-wider mb-3 transition-colors duration-300 ${
-                  isDark
-                    ? "text-foreground/80"
-                    : "text-[#3F3F3F]/70"
+                  isDark ? "text-foreground/80" : "text-[#3F3F3F]/70"
                 }`}
               >
                 Pseudo
@@ -182,18 +172,14 @@ export function SettingsModal({ isOpen, onOpenChange }: SettingsModalProps) {
                 <div className="flex items-center justify-between px-0.5">
                   <p
                     className={`text-xs transition-colors duration-300 ${
-                      isDark
-                        ? "text-foreground/50"
-                        : "text-[#3F3F3F]/60"
+                      isDark ? "text-foreground/50" : "text-[#3F3F3F]/60"
                     }`}
                   >
                     Max 10 caractères
                   </p>
                   <span
                     className={`text-xs transition-colors duration-300 ${
-                      isDark
-                        ? "text-foreground/40"
-                        : "text-[#3F3F3F]/50"
+                      isDark ? "text-foreground/40" : "text-[#3F3F3F]/50"
                     }`}
                   >
                     {displayName.length}/10
@@ -206,9 +192,7 @@ export function SettingsModal({ isOpen, onOpenChange }: SettingsModalProps) {
             <div className="animate-fadeIn" style={{ animationDelay: "0.15s" }}>
               <h3
                 className={`text-xs font-semibold uppercase tracking-wider mb-3 transition-colors duration-300 ${
-                  isDark
-                    ? "text-foreground/80"
-                    : "text-[#3F3F3F]/70"
+                  isDark ? "text-foreground/80" : "text-[#3F3F3F]/70"
                 }`}
               >
                 Apparence
@@ -223,9 +207,7 @@ export function SettingsModal({ isOpen, onOpenChange }: SettingsModalProps) {
                 <div>
                   <p
                     className={`text-sm font-medium transition-colors duration-300 ${
-                      isDark
-                        ? "text-foreground"
-                        : "text-[#1A1A1A]"
+                      isDark ? "text-foreground" : "text-[#1A1A1A]"
                     }`}
                   >
                     Mode sombre
@@ -260,9 +242,7 @@ export function SettingsModal({ isOpen, onOpenChange }: SettingsModalProps) {
             <div className="animate-fadeIn" style={{ animationDelay: "0.2s" }}>
               <h3
                 className={`text-xs font-semibold uppercase tracking-wider mb-3 transition-colors duration-300 ${
-                  isDark
-                    ? "text-foreground/80"
-                    : "text-[#3F3F3F]/70"
+                  isDark ? "text-foreground/80" : "text-[#3F3F3F]/70"
                 }`}
               >
                 Compte
@@ -276,18 +256,14 @@ export function SettingsModal({ isOpen, onOpenChange }: SettingsModalProps) {
               >
                 <p
                   className={`text-xs mb-1 transition-colors duration-300 ${
-                    isDark
-                      ? "text-foreground/50"
-                      : "text-[#3F3F3F]/50"
+                    isDark ? "text-foreground/50" : "text-[#3F3F3F]/50"
                   }`}
                 >
                   Adresse e-mail
                 </p>
                 <p
                   className={`text-sm truncate transition-colors duration-300 ${
-                    isDark
-                      ? "text-foreground"
-                      : "text-[#1A1A1A]"
+                    isDark ? "text-foreground" : "text-[#1A1A1A]"
                   }`}
                 >
                   {user?.email || "..."}
@@ -314,8 +290,8 @@ export function SettingsModal({ isOpen, onOpenChange }: SettingsModalProps) {
                   ? "bg-green-500/20 text-green-400 border border-green-500/30"
                   : "bg-green-100 text-green-700 border border-green-300"
                 : isDark
-                ? "bg-primary/20 hover:bg-primary/30 text-primary border border-primary/30 hover:border-primary/50 disabled:opacity-50 disabled:cursor-not-allowed"
-                : "bg-primary/10 hover:bg-primary/20 text-primary border border-primary/30 hover:border-primary/50 disabled:opacity-50 disabled:cursor-not-allowed"
+                  ? "bg-primary/20 hover:bg-primary/30 text-primary border border-primary/30 hover:border-primary/50 disabled:opacity-50 disabled:cursor-not-allowed"
+                  : "bg-primary/10 hover:bg-primary/20 text-primary border border-primary/30 hover:border-primary/50 disabled:opacity-50 disabled:cursor-not-allowed"
             }`}
           >
             {isSaving ? (

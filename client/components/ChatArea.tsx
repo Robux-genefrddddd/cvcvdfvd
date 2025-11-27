@@ -412,7 +412,7 @@ export function ChatArea({ conversationId }: ChatAreaProps) {
       id="chat-area"
       className="flex-1 flex flex-col min-h-0 transition-colors duration-300"
       style={{
-        backgroundColor: isDark ? "#0e0e0e" : "#F3F4F6"
+        backgroundColor: isDark ? "#0e0e0e" : "#F3F4F6",
       }}
     >
       {/* Main Content Area - Messages Container */}
@@ -615,7 +615,9 @@ export function ChatArea({ conversationId }: ChatAreaProps) {
       <div
         className="w-full px-6 md:px-8 py-6 animate-slideUp border-t transition-colors duration-300"
         style={{
-          borderColor: isDark ? "rgba(255, 255, 255, 0.08)" : "rgba(0, 0, 0, 0.08)",
+          borderColor: isDark
+            ? "rgba(255, 255, 255, 0.08)"
+            : "rgba(0, 0, 0, 0.08)",
           backgroundColor: isDark ? "#0e0e0e" : "#F3F4F6",
         }}
       >
@@ -693,9 +695,7 @@ export function ChatArea({ conversationId }: ChatAreaProps) {
                         key={emoji}
                         onClick={() => addEmoji(emoji)}
                         className={`p-2 rounded-lg transition-all duration-200 text-xl hover:scale-125 transform ${
-                          isDark
-                            ? "hover:bg-white/10"
-                            : "hover:bg-black/[0.05]"
+                          isDark ? "hover:bg-white/10" : "hover:bg-black/[0.05]"
                         }`}
                       >
                         {emoji}
