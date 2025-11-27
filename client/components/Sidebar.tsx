@@ -213,7 +213,7 @@ export function Sidebar({
 
       {/* Sidebar */}
       <aside
-        className={`fixed inset-y-0 left-0 w-48 sm:w-52 bg-sidebar border-r border-white/[0.08] flex flex-col transition-transform duration-300 ${
+        className={`fixed inset-y-0 left-0 w-44 sm:w-48 bg-sidebar border-r border-white/[0.08] flex flex-col transition-transform duration-300 ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         } z-50 animate-slideInLeft`}
       >
