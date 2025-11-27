@@ -167,26 +167,21 @@ export const handleCheckIPLimit: RequestHandler = async (req, res) => {
 
 export const handleRecordUserIP: RequestHandler = async (req, res) => {
   try {
-    const { userId, email, ipAddress } = req.body;
-
-    if (!userId || !ipAddress) {
-      res.status(400).json({ error: "userId and ipAddress required" });
-      return;
-    }
+    // Validate input
+    const validated = RecordUserIPSchema.parse(req.body);
+    const { userId, email, ipAddress } = validated;
 
     // If Firebase Admin is not initialized, skip recording
     if (!isAdminInitialized()) {
       console.warn(
         "Firebase Admin not initialized. Skipping IP recording. Set FIREBASE_SERVICE_ACCOUNT_KEY env var.",
       );
-      res.json({ success: true, ipId: "pending-initialization" });
-      return;
+      return res.json({ success: true, ipId: "pending-initialization" });
     }
 
     const db = getAdminDb();
     if (!db) {
-      res.json({ success: true, ipId: "pending-initialization" });
-      return;
+      return res.json({ success: true, ipId: "pending-initialization" });
     }
 
     const now = Timestamp.now();
@@ -199,10 +194,16 @@ export const handleRecordUserIP: RequestHandler = async (req, res) => {
       lastUsed: now,
     });
 
-    res.json({ success: true, ipId: docRef.id });
+    return res.json({ success: true, ipId: docRef.id });
   } catch (error) {
+    if (error instanceof z.ZodError) {
+      return res.status(400).json({
+        error: "Invalid request parameters",
+        details: error.errors,
+      });
+    }
     console.error("Error recording user IP:", error);
-    res.status(500).json({ error: "Failed to record IP" });
+    return res.status(500).json({ error: "Failed to record IP" });
   }
 };
 
