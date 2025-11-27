@@ -493,6 +493,29 @@ export function ChatArea({ conversationId }: ChatAreaProps) {
             )}
           </button>
         </div>
+
+        {/* Feature Buttons */}
+        <div className="flex items-center gap-2 px-2 mt-3 flex-wrap">
+          <button
+            onClick={handleDeepSearch}
+            disabled={!conversationId || loading || !message.trim()}
+            className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-blue-600/30 to-blue-500/20 border border-blue-500/50 text-blue-300 hover:text-blue-200 hover:border-blue-400 disabled:opacity-40 disabled:cursor-not-allowed transition-all duration-200 hover:shadow-lg hover:shadow-blue-500/20 text-xs sm:text-sm font-medium"
+            title="Recherche approfondie"
+          >
+            <Search size={16} />
+            <span>DeepSearch</span>
+          </button>
+
+          <button
+            onClick={handleGenerateImage}
+            disabled={!conversationId || loading || !message.trim()}
+            className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-purple-600/30 to-purple-500/20 border border-purple-500/50 text-purple-300 hover:text-purple-200 hover:border-purple-400 disabled:opacity-40 disabled:cursor-not-allowed transition-all duration-200 hover:shadow-lg hover:shadow-purple-500/20 text-xs sm:text-sm font-medium"
+            title="Générer une image"
+          >
+            <ImageIcon size={16} />
+            <span>Create Image</span>
+          </button>
+        </div>
       </div>
     </div>
   );
