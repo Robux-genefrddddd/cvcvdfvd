@@ -7,10 +7,7 @@ initializeFirebaseAdmin();
 export const handleGetAIConfig: RequestHandler = async (req, res) => {
   try {
     const db = getAdminDb();
-    const configSnap = await db
-      .collection("settings")
-      .doc("ai_config")
-      .get();
+    const configSnap = await db.collection("settings").doc("ai_config").get();
 
     const config = configSnap.exists
       ? configSnap.data()

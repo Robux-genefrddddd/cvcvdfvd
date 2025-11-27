@@ -106,9 +106,7 @@ export async function handleActivateLicense(req: Request, res: Response) {
       used: true,
     });
 
-    console.log(
-      `[LICENSE] User ${userId} activated license ${licenseKey}`,
-    );
+    console.log(`[LICENSE] User ${userId} activated license ${licenseKey}`);
 
     return res.status(200).json({
       message: "Licence activée avec succès",

@@ -97,9 +97,7 @@ export async function handleDailyReset(req: Request, res: Response) {
 
         const messageLimit = userData.messagesLimit || 500;
 
-        console.log(
-          `[RESET] User ${userId} messages reset for new day`,
-        );
+        console.log(`[RESET] User ${userId} messages reset for new day`);
 
         return res.status(200).json({
           message: "Messages réinitialisés pour aujourd'hui",

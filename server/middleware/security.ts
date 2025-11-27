@@ -150,7 +150,11 @@ export function serverRateLimit(
 /**
  * Authentication middleware - extracts and validates JWT token from request.
  */
-export function authMiddleware(req: Request, res: Response, next: NextFunction) {
+export function authMiddleware(
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) {
   const idToken =
     req.body?.idToken ||
     (req.headers.authorization?.startsWith("Bearer ")

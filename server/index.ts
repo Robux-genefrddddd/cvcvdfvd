@@ -5,7 +5,11 @@ import { handleDemo } from "./routes/demo";
 import { handleGetIP, handleCheckVPN } from "./routes/ip-detection";
 import { handleActivateLicense } from "./routes/license";
 import { handleDailyReset } from "./routes/daily-reset";
-import { handleAIChat, handleGetAIConfig, handleUpdateAIConfig } from "./routes/ai";
+import {
+  handleAIChat,
+  handleGetAIConfig,
+  handleUpdateAIConfig,
+} from "./routes/ai";
 import {
   handleVerifyAdmin,
   handleBanUser,

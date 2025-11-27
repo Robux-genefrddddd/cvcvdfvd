@@ -21,7 +21,9 @@ export function TypingIndicator() {
         <div
           className="w-2 h-2 rounded-full"
           style={{
-            backgroundColor: isDark ? "rgba(255,255,255,0.7)" : "rgba(0,0,0,0.6)",
+            backgroundColor: isDark
+              ? "rgba(255,255,255,0.7)"
+              : "rgba(0,0,0,0.6)",
             animation: "iMessageDots 1.2s ease-in-out infinite",
             animationDelay: "0s",
           }}
@@ -29,7 +31,9 @@ export function TypingIndicator() {
         <div
           className="w-2 h-2 rounded-full"
           style={{
-            backgroundColor: isDark ? "rgba(255,255,255,0.7)" : "rgba(0,0,0,0.6)",
+            backgroundColor: isDark
+              ? "rgba(255,255,255,0.7)"
+              : "rgba(0,0,0,0.6)",
             animation: "iMessageDots 1.2s ease-in-out infinite",
             animationDelay: "0.2s",
           }}
@@ -37,7 +41,9 @@ export function TypingIndicator() {
         <div
           className="w-2 h-2 rounded-full"
           style={{
-            backgroundColor: isDark ? "rgba(255,255,255,0.7)" : "rgba(0,0,0,0.6)",
+            backgroundColor: isDark
+              ? "rgba(255,255,255,0.7)"
+              : "rgba(0,0,0,0.6)",
             animation: "iMessageDots 1.2s ease-in-out infinite",
             animationDelay: "0.4s",
           }}

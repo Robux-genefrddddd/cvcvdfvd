@@ -52,7 +52,6 @@ export function ChatArea({ conversationId }: ChatAreaProps) {
   // Rate limiter: max 30 messages per minute
   const messageRateLimiter = useRef(new RateLimiter("send_message", 30, 60000));
 
-
   const getCharacterDelay = (char: string, nextChar?: string): number => {
     const baseDelay = 20;
     if (char === "." || char === "?" || char === "!") {
@@ -452,7 +451,10 @@ export function ChatArea({ conversationId }: ChatAreaProps) {
       <div className="flex-1 overflow-y-auto flex flex-col px-6 md:px-8 py-6 animate-fadeIn min-h-0 items-center transition-colors duration-300">
         <div className="w-full max-w-2xl">
           {!conversationId ? (
-            <div className="flex h-full items-center justify-center" style={{ paddingTop: "8%" }}>
+            <div
+              className="flex h-full items-center justify-center"
+              style={{ paddingTop: "8%" }}
+            >
               <div className="text-center">
                 <div
                   className={`w-24 h-24 rounded-full mx-auto mb-8 flex items-center justify-center border-2 animate-scaleIn animate-haloPulse transition-all duration-300 ${
@@ -503,7 +505,10 @@ export function ChatArea({ conversationId }: ChatAreaProps) {
               />
             </div>
           ) : chatMessages.length === 0 ? (
-            <div className="flex h-full items-center justify-center" style={{ paddingTop: "8%" }}>
+            <div
+              className="flex h-full items-center justify-center"
+              style={{ paddingTop: "8%" }}
+            >
               <div className="text-center">
                 <div
                   className={`w-24 h-24 rounded-full mx-auto mb-8 flex items-center justify-center border-2 animate-scaleIn animate-haloPulse transition-all duration-300 ${

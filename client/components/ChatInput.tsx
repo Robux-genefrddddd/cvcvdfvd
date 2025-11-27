@@ -73,26 +73,30 @@ export function ChatInput({
   }, [message]);
 
   return (
-    <div className="chat-input-container" style={{
-      padding: "14px 18px",
-      borderRadius: "16px",
-      background: isDark 
-        ? "rgba(255,255,255,0.04)" 
-        : "rgba(255,255,255,0.6)",
-      backdropFilter: "blur(8px)",
-      border: isDark
-        ? "1px solid rgba(255,255,255,0.08)"
-        : "1px solid rgba(255,255,255,0.2)",
-      boxShadow: isDark
-        ? "0 4px 14px rgba(0,0,0,0.4)"
-        : "0 2px 8px rgba(0,0,0,0.06)",
-      transition: "all 200ms ease",
-    }}>
-      <div className="chat-input-inner flex items-center gap-3" style={{
-        display: "flex",
-        alignItems: "center",
-        gap: "12px",
-      }}>
+    <div
+      className="chat-input-container"
+      style={{
+        padding: "14px 18px",
+        borderRadius: "16px",
+        background: isDark ? "rgba(255,255,255,0.04)" : "rgba(255,255,255,0.6)",
+        backdropFilter: "blur(8px)",
+        border: isDark
+          ? "1px solid rgba(255,255,255,0.08)"
+          : "1px solid rgba(255,255,255,0.2)",
+        boxShadow: isDark
+          ? "0 4px 14px rgba(0,0,0,0.4)"
+          : "0 2px 8px rgba(0,0,0,0.06)",
+        transition: "all 200ms ease",
+      }}
+    >
+      <div
+        className="chat-input-inner flex items-center gap-3"
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "12px",
+        }}
+      >
         {/* Textarea */}
         <textarea
           ref={textareaRef}
@@ -128,7 +132,8 @@ export function ChatInput({
             maxHeight: "120px",
             overflow: "hidden",
             resize: "none",
-            fontFamily: "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+            fontFamily:
+              "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
           }}
         />
 
@@ -193,9 +198,7 @@ export function ChatInput({
                   key={emoji}
                   onClick={() => handleAddEmoji(emoji)}
                   className={`p-2 rounded-lg transition-all duration-200 text-xl hover:scale-125 transform ${
-                    isDark
-                      ? "hover:bg-white/10"
-                      : "hover:bg-black/[0.05]"
+                    isDark ? "hover:bg-white/10" : "hover:bg-black/[0.05]"
                   }`}
                 >
                   {emoji}
@@ -218,16 +221,18 @@ export function ChatInput({
             justifyContent: "center",
             borderRadius: "50%",
             border: "none",
-            background: message.trim() && !disabled
-              ? isDark
-                ? "rgba(59, 130, 246, 0.1)"
-                : "rgba(59, 130, 246, 0.08)"
-              : "transparent",
-            color: message.trim() && !disabled
-              ? "#3b82f6"
-              : isDark
-                ? "rgba(255, 255, 255, 0.3)"
-                : "rgba(0, 0, 0, 0.2)",
+            background:
+              message.trim() && !disabled
+                ? isDark
+                  ? "rgba(59, 130, 246, 0.1)"
+                  : "rgba(59, 130, 246, 0.08)"
+                : "transparent",
+            color:
+              message.trim() && !disabled
+                ? "#3b82f6"
+                : isDark
+                  ? "rgba(255, 255, 255, 0.3)"
+                  : "rgba(0, 0, 0, 0.2)",
             cursor: message.trim() && !disabled ? "pointer" : "default",
             transition: "0.15s ease",
             flexShrink: 0,

@@ -86,7 +86,8 @@ export const handleAIChat: RequestHandler = async (req, res) => {
     if (!apiKey) {
       console.error("OPENROUTER_API_KEY not configured");
       return res.status(500).json({
-        error: "Service d'IA non disponible. Veuillez contacter l'administrateur.",
+        error:
+          "Service d'IA non disponible. Veuillez contacter l'administrateur.",
       });
     }
 
@@ -268,9 +269,7 @@ export const handleUpdateAIConfig: RequestHandler = async (req, res) => {
       merge: true,
     });
 
-    console.log(
-      `[ADMIN_ACTION] ${decoded.uid} updated AI configuration`,
-    );
+    console.log(`[ADMIN_ACTION] ${decoded.uid} updated AI configuration`);
 
     return res.json({
       success: true,
