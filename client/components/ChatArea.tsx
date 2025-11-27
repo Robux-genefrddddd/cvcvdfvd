@@ -42,8 +42,8 @@ const EMOJIS = [
 ];
 
 const AUTO_RESIZE_CONFIG = {
-  minHeight: 48,
-  maxHeight: 200,
+  minHeight: 24,
+  maxHeight: 120,
 };
 
 interface ChatMessage {
