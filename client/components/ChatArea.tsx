@@ -622,15 +622,16 @@ export function ChatArea({ conversationId }: ChatAreaProps) {
         <div className="flex flex-col items-center w-full">
           <div className="w-full max-w-2xl">
             <div
-              className={`flex items-end gap-2 px-4 py-3 transition-all duration-300 group shadow-sm ${
+              className={`flex items-end gap-2 px-4 py-3 transition-all duration-300 group shadow-sm rounded-4xl ${
                 !conversationId
                   ? "opacity-50 cursor-not-allowed"
                   : "hover:shadow-md focus-within:shadow-md"
               }`}
               style={{
-                backgroundColor: "#111",
-                border: "1px solid rgba(255, 255, 255, 0.08)",
-                borderRadius: "16px",
+                backgroundColor: isDark ? "#111" : "#FFFFFF",
+                border: isDark
+                  ? "1px solid rgba(255, 255, 255, 0.08)"
+                  : "1px solid rgba(0, 0, 0, 0.08)",
               }}
             >
               <textarea
