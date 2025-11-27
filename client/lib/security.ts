@@ -30,16 +30,12 @@ export function sanitizeInput(input: string): string {
   // Remove control characters (except newlines and tabs)
   sanitized = sanitized.replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g, "");
 
-  // Remove script tags and event handlers
-  sanitized = sanitized.replace(/<script[^>]*>.*?<\/script>/gi, "");
-  sanitized = sanitized.replace(/on\w+\s*=\s*["'][^"']*["']/gi, "");
-  sanitized = sanitized.replace(/on\w+\s*=\s*[^\s>]*/gi, "");
-
-  // Remove iframe tags
-  sanitized = sanitized.replace(/<iframe[^>]*>.*?<\/iframe>/gi, "");
-
-  // Remove object/embed tags
-  sanitized = sanitized.replace(/<(object|embed)[^>]*>/gi, "");
+  // Use DOMPurify to remove all dangerous HTML tags and attributes
+  // ALLOWED_TAGS: [] prevents any HTML tags from being kept
+  sanitized = DOMPurify.sanitize(sanitized, {
+    ALLOWED_TAGS: [],
+    ALLOWED_ATTR: [],
+  });
 
   return sanitized;
 }
