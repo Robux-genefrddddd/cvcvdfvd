@@ -11,6 +11,8 @@ import {
   handleBanUser,
   handleGetAllUsers,
   handleCreateLicense,
+  handleBanIP,
+  handleDeleteUser,
 } from "./routes/admin";
 
 export function createServer() {
