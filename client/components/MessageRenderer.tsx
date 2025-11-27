@@ -362,7 +362,7 @@ export function MessageRenderer({
   const elements = parseMarkdownElements(content);
 
   return (
-    <div className="space-y-2">
+    <div>
       {elements}
       {isStreaming && (
         <span className="inline-block w-2 h-5 bg-white/50 ml-1 animate-pulse" />
