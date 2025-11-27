@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc, getDoc } from "firebase/firestore";
@@ -8,13 +8,42 @@ import { Mail, Lock, Key } from "lucide-react";
 import { toast } from "sonner";
 import { IPService } from "@/lib/ip-service";
 
+interface CaptchaData {
+  num1: number;
+  num2: number;
+  operator: "+" | "-";
+  answer: number;
+}
+
 export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
   const [licenseKey, setLicenseKey] = useState("");
+  const [captcha, setCaptcha] = useState<CaptchaData | null>(null);
+  const [captchaInput, setCaptchaInput] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+
+  // Generate random math captcha on component mount
+  useEffect(() => {
+    generateCaptcha();
+  }, []);
+
+  const generateCaptcha = () => {
+    const num1 = Math.floor(Math.random() * 50) + 1;
+    const num2 = Math.floor(Math.random() * 50) + 1;
+    const operator = Math.random() > 0.5 ? "+" : "-";
+    const answer = operator === "+" ? num1 + num2 : num1 - num2;
+
+    setCaptcha({ num1, num2, operator, answer });
+    setCaptchaInput("");
+  };
+
+  const verifyCaptcha = (): boolean => {
+    if (!captcha) return false;
+    const userAnswer = parseInt(captchaInput, 10);
+    return userAnswer === captcha.answer;
+  };
 
   const validateLicenseKey = async (
     key: string,
