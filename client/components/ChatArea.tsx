@@ -558,7 +558,7 @@ export function ChatArea({ conversationId }: ChatAreaProps) {
                     key={msg.id}
                     className={`flex w-full ${
                       msg.role === "user" ? "justify-end" : "justify-start"
-                    } animate-springFade`}
+                    } animate-messageFadeUp`}
                   >
                     {msg.role === "user" ? (
                       <div className="flex gap-2 items-start flex-row-reverse max-w-lg">
