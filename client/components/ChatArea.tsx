@@ -70,9 +70,13 @@ export function ChatArea({ conversationId }: ChatAreaProps) {
   const [isTyping, setIsTyping] = useState(false);
   const [typingText, setTypingText] = useState("");
   const [fullText, setFullText] = useState("");
+  const [blocks, setBlocks] = useState<string[]>([]);
+  const [renderedBlockCount, setRenderedBlockCount] = useState(0);
+  const [isRenderingBlocks, setIsRenderingBlocks] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const typingIntervalRef = useRef<NodeJS.Timeout | null>(null);
+  const blockIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
   // Rate limiter: max 30 messages per minute
   const messageRateLimiter = useRef(new RateLimiter("send_message", 30, 60000));
