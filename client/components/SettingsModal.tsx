@@ -213,25 +213,16 @@ export function SettingsModal({ isOpen, onOpenChange }: SettingsModalProps) {
               className="animate-fadeIn"
               style={{ animationDelay: "0.2s" }}
             >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary/60 to-primary/80 flex items-center justify-center flex-shrink-0">
-                  <span className="text-xs font-semibold text-primary-foreground">
-                    @
-                  </span>
-                </div>
-                <h3 className="text-sm font-semibold text-foreground">
-                  Compte
-                </h3>
-              </div>
-              <div className="bg-white/[0.02] border border-white/[0.08] rounded-[14px] p-4">
-                <div>
-                  <p className="text-xs text-foreground/60 mb-1.5">
-                    Adresse e-mail
-                  </p>
-                  <p className="text-sm font-medium text-foreground truncate">
-                    {user?.email || "..."}
-                  </p>
-                </div>
+              <h3 className="text-xs font-semibold text-foreground/80 uppercase tracking-wider mb-3">
+                Compte
+              </h3>
+              <div className="bg-white/[0.03] rounded-[10px] p-3.5 shadow-sm">
+                <p className="text-xs text-foreground/50 mb-1">
+                  Adresse e-mail
+                </p>
+                <p className="text-sm text-foreground truncate">
+                  {user?.email || "..."}
+                </p>
               </div>
             </div>
           </div>
