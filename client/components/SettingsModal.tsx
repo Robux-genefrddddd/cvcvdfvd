@@ -157,7 +157,13 @@ export function SettingsModal({ isOpen, onOpenChange }: SettingsModalProps) {
 
             {/* Section 2: Display Name / Pseudo */}
             <div className="animate-fadeIn" style={{ animationDelay: "0.1s" }}>
-              <h3 className="text-xs font-semibold text-foreground/80 uppercase tracking-wider mb-3">
+              <h3
+                className={`text-xs font-semibold uppercase tracking-wider mb-3 transition-colors duration-300 ${
+                  isDark
+                    ? "text-foreground/80"
+                    : "text-[#3F3F3F]/70"
+                }`}
+              >
                 Pseudo
               </h3>
               <div className="space-y-2">
@@ -167,13 +173,29 @@ export function SettingsModal({ isOpen, onOpenChange }: SettingsModalProps) {
                   onChange={handleDisplayNameChange}
                   placeholder="Votre pseudo..."
                   maxLength={10}
-                  className="w-full bg-white/[0.03] border border-white/[0.06] rounded-[10px] px-3 py-2.5 text-foreground placeholder-foreground/40 focus:outline-none focus:border-primary/40 focus:bg-white/[0.05] transition-all duration-200 text-sm"
+                  className={`w-full border rounded-[10px] px-3 py-2.5 placeholder-opacity-50 focus:outline-none transition-all duration-200 text-sm ${
+                    isDark
+                      ? "bg-white/[0.03] border-white/[0.06] text-foreground placeholder-foreground/40 focus:border-primary/40 focus:bg-white/[0.05]"
+                      : "bg-[#FFFFFF] border-black/[0.08] text-[#1A1A1A] placeholder-[#3F3F3F]/50 focus:border-primary/40 focus:bg-[#FFFFFF]"
+                  }`}
                 />
                 <div className="flex items-center justify-between px-0.5">
-                  <p className="text-xs text-foreground/50">
+                  <p
+                    className={`text-xs transition-colors duration-300 ${
+                      isDark
+                        ? "text-foreground/50"
+                        : "text-[#3F3F3F]/60"
+                    }`}
+                  >
                     Max 10 caractères
                   </p>
-                  <span className="text-xs text-foreground/40">
+                  <span
+                    className={`text-xs transition-colors duration-300 ${
+                      isDark
+                        ? "text-foreground/40"
+                        : "text-[#3F3F3F]/50"
+                    }`}
+                  >
                     {displayName.length}/10
                   </span>
                 </div>
