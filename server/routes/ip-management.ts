@@ -145,7 +145,21 @@ export const handleRecordUserIP: RequestHandler = async (req, res) => {
       return;
     }
 
+    // If Firebase Admin is not initialized, skip recording
+    if (!isAdminInitialized()) {
+      console.warn(
+        "Firebase Admin not initialized. Skipping IP recording. Set FIREBASE_SERVICE_ACCOUNT_KEY env var.",
+      );
+      res.json({ success: true, ipId: "pending-initialization" });
+      return;
+    }
+
     const db = getAdminDb();
+    if (!db) {
+      res.json({ success: true, ipId: "pending-initialization" });
+      return;
+    }
+
     const now = Timestamp.now();
 
     const docRef = await db.collection("user_ips").add({
